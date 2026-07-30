@@ -17,7 +17,6 @@ services:
   - type: web
     name: gwf-web
     runtime: static
-    plan: free
     rootDir: frontend/gwf-web
     buildCommand: npm install && npm run build:render
     staticPublishPath: dist/gwf-web/browser
