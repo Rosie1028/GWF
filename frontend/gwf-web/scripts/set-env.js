@@ -7,6 +7,11 @@ if (!apiHost) {
   process.exit(1);
 }
 
+if (!apiHost.includes('.')) {
+  console.error(`API_HOST looks invalid (expected a public hostname): ${apiHost}`);
+  process.exit(1);
+}
+
 const apiUrl = `https://${apiHost}/api`;
 const envPath = path.join(__dirname, '../src/environments/environment.prod.ts');
 const contents = `export const environment = {

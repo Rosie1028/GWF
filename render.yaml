@@ -10,7 +10,10 @@ services:
       - key: ASPNETCORE_ENVIRONMENT
         value: Production
       - key: AllowedOrigins
-        value: https://gwf-web.onrender.com
+        fromService:
+          type: web
+          name: gwf-web
+          envVarKey: RENDER_EXTERNAL_URL
 
   - type: web
     name: gwf-web
@@ -27,4 +30,4 @@ services:
         fromService:
           type: web
           name: gwf-api
-          property: host
+          envVarKey: RENDER_EXTERNAL_HOSTNAME
