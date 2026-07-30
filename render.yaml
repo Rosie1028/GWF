@@ -5,8 +5,6 @@ services:
     runtime: docker
     plan: free
     rootDir: backend/Gwf.Api
-    dockerfilePath: ./backend/Gwf.Api/Dockerfile
-    dockerContext: ./backend/Gwf.Api
     healthCheckPath: /api/products
     envVars:
       - key: ASPNETCORE_ENVIRONMENT
