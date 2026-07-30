@@ -1,0 +1,58 @@
+<section class="page-header">
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p>We'd love to hear from you</p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+      <p>
+        Have a question about our products, want to collaborate, or just want to say hello?
+        Fill out the form and we'll get back to you as soon as we can.
+      </p>
+      <ul class="contact-details">
+        <li>
+          <strong>Email</strong>
+          <span>hello&#64;gwf-movement.com</span>
+        </li>
+        <li>
+          <strong>Follow us</strong>
+          <span>&#64;gwf_wellbeing</span>
+        </li>
+      </ul>
+    </div>
+
+    <form class="contact-form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="contact-name">Name</label>
+        <input id="contact-name" type="text" [(ngModel)]="name" name="name" required />
+      </div>
+      <div class="form-group">
+        <label for="contact-email">Email</label>
+        <input id="contact-email" type="email" [(ngModel)]="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label for="contact-subject">Subject</label>
+        <input id="contact-subject" type="text" [(ngModel)]="subject" name="subject" />
+      </div>
+      <div class="form-group">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" [(ngModel)]="message" name="message" rows="5" required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn--primary btn--full" [disabled]="submitting()">
+        {{ submitting() ? 'Sending...' : 'Send Message' }}
+      </button>
+
+      @if (success()) {
+        <p class="success-msg">{{ success() }}</p>
+      }
+      @if (error()) {
+        <p class="error-msg">{{ error() }}</p>
+      }
+    </form>
+  </div>
+</section>

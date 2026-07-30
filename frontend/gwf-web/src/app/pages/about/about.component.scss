@@ -1,0 +1,81 @@
+.about-content {
+  padding: 3rem 0 5rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.photo-placeholder {
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(145deg, var(--color-primary-light), var(--color-primary));
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.about-text h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.25rem;
+}
+
+.about-text .title {
+  color: var(--color-accent);
+  font-weight: 500;
+  margin: 0 0 1.5rem;
+}
+
+.about-text .bio {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin: 0 0 2rem;
+}
+
+.about-block {
+  margin-bottom: 1.75rem;
+}
+
+.about-block h3 {
+  font-family: var(--font-display);
+  color: var(--color-primary);
+  margin: 0 0 0.5rem;
+}
+
+.about-block p {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.values-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.5rem;
+}
+
+.values-list li {
+  padding: 0.5rem 0.75rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}

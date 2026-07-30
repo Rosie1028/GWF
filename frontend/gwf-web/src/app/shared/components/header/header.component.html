@@ -1,0 +1,21 @@
+<header class="header">
+  <div class="container header__inner">
+    <a routerLink="/" class="logo">
+      <span class="logo__mark">GWF</span>
+      <span class="logo__text">Wellbeing · Growth · Freedom</span>
+    </a>
+
+    <nav class="nav">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a routerLink="/about" routerLinkActive="active">About</a>
+      <a routerLink="/products" routerLinkActive="active">Shop</a>
+      <a routerLink="/contact" routerLinkActive="active">Contact</a>
+      <a routerLink="/products" class="cart-link" routerLinkActive="active">
+        Cart
+        @if (cartService.itemCount() > 0) {
+          <span class="cart-badge">{{ cartService.itemCount() }}</span>
+        }
+      </a>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,48 @@
+<section class="page-header">
+  <div class="container">
+    <h1>About GWF</h1>
+    <p>Meet the heart behind the movement</p>
+  </div>
+</section>
+
+<section class="about-content">
+  <div class="container">
+    @if (loading()) {
+      <p class="loading">Loading...</p>
+    } @else if (error()) {
+      <p class="error">{{ error() }}</p>
+    } @else if (founder()) {
+      <div class="about-grid">
+        <div class="about-photo">
+          <div class="photo-placeholder">
+            <span>Your photo here</span>
+          </div>
+        </div>
+        <div class="about-text">
+          <h2>{{ founder()!.name }}</h2>
+          <p class="title">{{ founder()!.title }}</p>
+          <p class="bio">{{ founder()!.bio }}</p>
+
+          <div class="about-block">
+            <h3>Our Mission</h3>
+            <p>{{ founder()!.mission }}</p>
+          </div>
+
+          <div class="about-block">
+            <h3>Our Vision</h3>
+            <p>{{ founder()!.vision }}</p>
+          </div>
+
+          <div class="about-block">
+            <h3>Our Values</h3>
+            <ul class="values-list">
+              @for (value of founder()!.values; track value) {
+                <li>{{ value }}</li>
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>
