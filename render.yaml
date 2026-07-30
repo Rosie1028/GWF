@@ -2,11 +2,11 @@
 services:
   - type: web
     name: gwf-api
-    runtime: dotnet
+    runtime: docker
     plan: free
     rootDir: backend/Gwf.Api
-    buildCommand: dotnet publish -c Release -o ./publish
-    startCommand: dotnet ./publish/Gwf.Api.dll
+    dockerfilePath: ./backend/Gwf.Api/Dockerfile
+    dockerContext: ./backend/Gwf.Api
     healthCheckPath: /api/products
     envVars:
       - key: ASPNETCORE_ENVIRONMENT
