@@ -134,12 +134,56 @@ Adding to cart updates this signal; the header badge and cart panel react automa
 
 ---
 
+## Deploy for free (Render)
+
+The repo includes a [Render](https://render.com) blueprint that deploys both the API and the Angular site on Render’s free tier.
+
+| Service | URL (after deploy) | What it runs |
+|---------|-------------------|--------------|
+| **gwf-api** | `https://gwf-api.onrender.com` | ASP.NET Core API |
+| **gwf-web** | `https://gwf-web.onrender.com` | Angular site |
+
+### One-time setup (~5 minutes)
+
+1. Create a free account at [render.com](https://render.com) (sign in with GitHub).
+2. Open the blueprint link: [Deploy GWF on Render](https://dashboard.render.com/select-repo?type=blueprint)
+3. Select your **Rosie1028/GWF** repository.
+4. Click **Apply** — Render creates both services and deploys from `main`.
+
+That’s it. When the deploy finishes, open **https://gwf-web.onrender.com**.
+
+### Free tier notes
+
+- **Static site (frontend)** — always on, no cold starts.
+- **Web service (API)** — sleeps after ~15 minutes of no traffic. The first request after sleep can take ~30 seconds to wake up.
+- Both services stay free as long as you’re within Render’s free limits.
+
+### After you push code changes
+
+Render redeploys automatically when you push to `main`:
+
+```bash
+git add .
+git commit -m "Your changes"
+git push
+```
+
+### Troubleshooting
+
+| Problem | Fix |
+|---------|-----|
+| Shop page shows no products | Wait for the API to wake up, then refresh. Check **gwf-api** logs in the Render dashboard. |
+| API build fails | Open the **gwf-api** service → **Logs** in Render. |
+| Frontend can’t reach API | In **gwf-api** → **Environment**, confirm `AllowedOrigins` is `https://gwf-web.onrender.com`. |
+
+---
+
 ## Next steps (when you're ready)
 
 1. **Database** — Replace in-memory data with Entity Framework + SQLite/SQL Server
 2. **Authentication** — Add user accounts for admin product management
 3. **Payments** — Integrate Stripe for real checkout
-4. **Deploy** — Host API on Azure/Railway; frontend on Netlify/Vercel or Azure Static Web Apps
+4. **Custom domain** — Add your own domain in Render’s dashboard for each service
 5. **Email** — Send real contact/order emails with SendGrid or SMTP
 
 ---
